@@ -37,6 +37,7 @@ public class FactureService {
                 .map(f -> factureDto(clientDto(f.getClient()), f))
                 .collect(toList());
     }
+    
 
     public FactureDto findById(Long id) {
         // Transformation d'une Facture en FactureDto
@@ -46,7 +47,7 @@ public class FactureService {
 
 
     private ClientDto clientDto(Client client) {
-        return new ClientDto(client.getId(), client.getNom(), client.getPrenom());
+        return new ClientDto(client.getId(), client.getNom(), client.getPrenom(), client.getDateNaissance());
     }
 
     private FactureDto factureDto(ClientDto clientDto, Facture f) {
